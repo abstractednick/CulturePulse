@@ -1,0 +1,38 @@
+{
+  "name": "culturepulse",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Map-first app for Gen Z micro-scenes and pop-up events — discover, host, and attend authentic youth-led gatherings.",
+  "workspaces": [
+    "services/api",
+    "services/jobs",
+    "web/app",
+    "web/admin-panel"
+  ],
+  "scripts": {
+    "dev": "npm run seed --workspace=@culturepulse/api && concurrently -n api,jobs,app,admin -c lime,magenta,cyan,yellow \"npm run dev -w @culturepulse/api\" \"npm run dev -w @culturepulse/jobs\" \"npm run dev -w @culturepulse/app\" \"npm run dev -w @culturepulse/admin\"",
+    "dev:api": "npm run dev -w @culturepulse/api",
+    "dev:app": "npm run dev -w @culturepulse/app",
+    "dev:admin": "npm run dev -w @culturepulse/admin",
+    "dev:jobs": "npm run dev -w @culturepulse/jobs",
+    "seed": "npm run seed -w @culturepulse/api",
+    "build": "npm run build -w @culturepulse/api && npm run build -w @culturepulse/app && npm run build -w @culturepulse/admin && npm run build -w @culturepulse/jobs",
+    "start": "npm run start -w @culturepulse/api"
+  },
+  "keywords": [
+    "culturepulse",
+    "gen-z",
+    "maps",
+    "events",
+    "micro-scenes",
+    "android",
+    "kotlin",
+    "compose",
+    "typescript"
+  ],
+  "author": "abstractednick",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
